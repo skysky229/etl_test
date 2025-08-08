@@ -16,7 +16,7 @@ dag = DAG(
     start_date=days_ago(1),
     catchup=False,
     schedule_interval=timedelta(days=1),
-    template_searchpath='/opt/airflow/dags/spark8s/'
+    template_searchpath='/opt/airflow/dags/repo/dags/spark8s/'
 )
 
 spark_k8s_task = SparkKubernetesOperator(
@@ -27,7 +27,6 @@ spark_k8s_task = SparkKubernetesOperator(
     application_file='test_spark_k8s.yaml',
     namespace="spark",
     kubernetes_conn_id="kubernetes_default",
-    get_logs=True,
     do_xcom_push=True,
     dag=dag
 )
