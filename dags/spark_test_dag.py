@@ -27,6 +27,7 @@ spark_k8s_task = SparkKubernetesOperator(
     application_file='test_spark_k8s.yaml',
     namespace="spark",
     kubernetes_conn_id="kubernetes_default",
+    get_logs=True,
     do_xcom_push=True,
     dag=dag
 )
