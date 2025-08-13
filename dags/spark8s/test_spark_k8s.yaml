@@ -1,7 +1,7 @@
 apiVersion: sparkoperator.k8s.io/v1beta2
 kind: SparkApplication
 metadata:
-  name: test-spark-{{ ts_nodash }}
+  name: test-spark-{{ ts_nodash.replace("T", "-") }}
   namespace: spark
 spec:
   type: Python
